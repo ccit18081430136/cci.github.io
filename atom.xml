@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-30T02:45:10.936Z</updated>
+  <updated>2020-05-21T07:58:42.098Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,110 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>关于hexo博客搭建及部署篇</title>
-    <link href="http://yoursite.com/2020/05/30/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%83%A8%E7%BD%B2%E7%AF%87/"/>
-    <id>http://yoursite.com/2020/05/30/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%83%A8%E7%BD%B2%E7%AF%87/</id>
-    <published>2020-05-30T02:27:45.029Z</published>
-    <updated>2020-05-30T02:45:10.936Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="博客目录"><a href="#博客目录" class="headerlink" title="博客目录 "></a><font color=red >博客目录 </font></h1><h2 id="1-安装Node-js和Git"><a href="#1-安装Node-js和Git" class="headerlink" title="1.  安装Node.js和Git"></a><font color=red >1.  安装Node.js和Git</font></h2><h2 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2. 安装Hexo"></a><font color=red >2. 安装Hexo</font></h2><h2 id="3-本地查看效果"><a href="#3-本地查看效果" class="headerlink" title="3. 本地查看效果"></a><font color=red >3. 本地查看效果</font></h2><h2 id="4-将博客部署到Github-Pages"><a href="#4-将博客部署到Github-Pages" class="headerlink" title="4. 将博客部署到Github Pages"></a><font color=red >4. 将博客部署到Github Pages</font></h2><h4 id="注册github账号"><a href="#注册github账号" class="headerlink" title=" . 注册github账号"></a><font color=red > . 注册github账号</font></h4><h4 id="创建项目代码库"><a href="#创建项目代码库" class="headerlink" title="  . 创建项目代码库"></a><font color=red >  . 创建项目代码库</font></h4><h4 id="配置SSH密钥"><a href="#配置SSH密钥" class="headerlink" title=". 配置SSH密钥"></a><font color=red >. 配置SSH密钥</font></h4><h4 id="在github中添加你的密钥"><a href="#在github中添加你的密钥" class="headerlink" title=". 在github中添加你的密钥"></a><font color=red >. 在github中添加你的密钥</font></h4><h4 id="测试"><a href="#测试" class="headerlink" title=". 测试"></a><font color=red >. 测试</font></h4><h4 id="配置git个人信息"><a href="#配置git个人信息" class="headerlink" title=" . 配置git个人信息"></a><font color=red > . 配置git个人信息</font></h4><h4 id="将本地的Hexo文件更新到Github中"><a href="#将本地的Hexo文件更新到Github中" class="headerlink" title="  . 将本地的Hexo文件更新到Github中"></a><font color=red >  . 将本地的Hexo文件更新到Github中</font></h4><h2 id="5-将本地的Hexo文件更新到Github的库中"><a href="#5-将本地的Hexo文件更新到Github的库中" class="headerlink" title=" 5. 将本地的Hexo文件更新到Github的库中"></a><font color=red > 5. 将本地的Hexo文件更新到Github的库中</font></h2><h3 id="注意"><a href="#注意" class="headerlink" title=" . 注意"></a><font color=red > . 注意</font></h3><p>其实前三步都很简单，可能第四步开始，也就是将你的博客从本地部署到github上可能会出错。我在部署的时候，就卡在公钥那一块，后来发现是自己一开始注册github的邮箱和git bash里填的邮箱不一样。</p><h3 id="安装node-js和Git"><a href="#安装node-js和Git" class="headerlink" title=" . 安装node.js和Git"></a><font color=red > . 安装node.js和Git</font></h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">点击此处</a>和<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">此处</a>分别下载node.js（node下载LTS版本就行）和Git，两个软件都一路next下载即可，当然安装路径这个随你。</p><p>下载好之好，我们打开cmd进行测试，看有没有下载成功。如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git --version   </span><br><span class="line"></span><br><span class="line">$ node -v     </span><br><span class="line"></span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure><p>测试结果如图：</p><hr><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120503.jpg" alt=""></p><p>到这里，我们第一步成功完成。</p><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title=" . 安装hexo"></a><font color=red > . 安装hexo</font></h3><p>选择一个磁盘，新建一个文件夹，自己重命名文件夹（如：我的文件夹为：Ｅ\TRHX_Blog），博客相关文件将存储在此文件夹下，在该文件夹下右键鼠标，点击 Git Bash Here，输入以下 npm 命令即可安装，第一个命令表示安装 hexo，第二个命令表示安装 hexo 部署到 git page 的 deployer，如图所示即为安装成功。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g  </span><br><span class="line"></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p> <img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120504.jpg" alt=""></p><h3 id="Hexo-初始化配置"><a href="#Hexo-初始化配置" class="headerlink" title=" . Hexo 初始化配置"></a><font color=red > . Hexo 初始化配置</font></h3><p>在刚才新建的文件夹里面再次新建一个 Hexo 文件夹（如：我的文件夹为：E\TRHX_Blog\Hexo）,进入该 Hexo 文件夹右键鼠标，点击 Git Bash Here，输入以下命令，（过程可能会有点长，请耐心等待）如图所示则安装成功 。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120513.jpg" alt=""></p><p>Hexo 安装完成后，将会在指定文件夹中新建所需要的文件，此时Hexo 文件夹下的目录如下：</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120508.jpg" alt=""></p><p>有的人可能会没有public文件夹，这个不要紧。</p><h3 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title=" . 本地查看效果"></a><font color=red > . 本地查看效果</font></h3><p>执行以下命令，执行完即可登录 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 查看效果</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g </span><br><span class="line"></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><p>显示以下信息说明操作成功：</p><p> -打开浏览器复制进入查看效果</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><p><img src="image/20200523120512.jpg" alt="">做到这里，恭喜你，成功一半了:v:</p><h2 id="下面的具体任务是将本地博客部署到github上y"><a href="#下面的具体任务是将本地博客部署到github上y" class="headerlink" title=" . 下面的具体任务是将本地博客部署到github上y"></a><font color=red > . 下面的具体任务是将本地博客部署到github上y</font></h2><h4 id="1-注册github账号"><a href="#1-注册github账号" class="headerlink" title=" 1.注册github账号"></a><font color=red > 1.注册github账号</font></h4><p><a href="https://github.com/" target="_blank" rel="noopener">点击此处</a>访问 Github 官网，点击 Sign Up 注册账户</p><h4 id="2-创建项目代码库"><a href="#2-创建项目代码库" class="headerlink" title=" 2.创建项目代码库"></a><font color=red > 2.创建项目代码库</font></h4><p>点击 New repository 开始创建，步骤及注意事项见下图：（库名一定要和用户名一样，否则容易出错）</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120511.jpg" alt=""></p><p>​      </p><h4 id="3-配置SSH密钥"><a href="#3-配置SSH密钥" class="headerlink" title=" 3. 配置SSH密钥"></a><font color=red > 3. 配置SSH密钥</font></h4><p>只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：Ｅ\TRHX_Blog） Git Bash Here 输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your email@example.com"</span>  </span><br><span class="line">//引号里面填写你的邮箱地址，比如我的是tanrenhou@126.com(注册github时的邮箱)</span><br></pre></td></tr></table></figure><p>之后会出现：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.   </span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/you/.ssh/id_rsa):  </span><br><span class="line">//到这里可以直接回车将密钥按默认文件进行存储</span><br></pre></td></tr></table></figure><p>这里两步一直回车就行，直到出现如下就可以了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/you/.ssh/id_rsa.  </span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/you/.ssh/id_rsa.pub.  </span><br><span class="line">The key fingerprint is:  </span><br><span class="line">这里是各种字母数字组成的字符串，结尾是你的邮箱  </span><br><span class="line">The key<span class="string">'s randomart image is:  </span></span><br><span class="line"><span class="string">这里也是各种字母数字符号组成的字符串</span></span><br></pre></td></tr></table></figure><p>运行以下命令，将公钥的内容复制到系统粘贴板上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><h4 id="4-在github中添加你的密钥"><a href="#4-在github中添加你的密钥" class="headerlink" title=" 4. 在github中添加你的密钥"></a><font color=red > 4. 在github中添加你的密钥</font></h4><ul><li><p>登陆 GitHub，进入 Settings：</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120507.jpg" alt=""></p></li><li><p>点击 SSH and GPG Keys：</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120510.jpg" alt=""></p></li><li><p>选择 New SSH key：</p><p><img src="http://q6n9wkpci.bkt.clouddn.com/www/20200304/MVeQ4CrhUGWE.jpg?imageslim" alt="mark"></p></li><li><p>粘贴密钥：</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120515.jpg" alt=""></p></li></ul><h4 id="5-测试"><a href="#5-测试" class="headerlink" title=" 5. 测试"></a><font color=red > 5. 测试</font></h4><p>输入以下命令：注意：<a href="mailto:git@github.com">git@github.com</a>不要做任何更改！</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>​      之后会显示：</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523130336.jpg" alt=""></p><p>​     回车即可，出现如下图就OK了</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523130346.jpg" alt=""></p><h4 id="6-配置git个人信息"><a href="#6-配置git个人信息" class="headerlink" title=" 6. 配置git个人信息"></a><font color=red > 6. 配置git个人信息</font></h4><p>Git 会根据用户的名字和邮箱来记录提交，GitHub 也是用这些信息来做权限的处理，输入以下命令进行个人信息的设置，把名称和邮箱替换成你自己的，名字可以不是 GitHub 的昵称，但为了方便记忆，建议与 GitHub 一致</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"此处填你的用户名"</span>  </span><br><span class="line">$ git config --global user.email  <span class="string">"此处填你的邮箱"</span></span><br></pre></td></tr></table></figure><p>到此为止 SSH Key 配置成功，本机已成功连接到 Github</p><h4 id="7-将本地的Hexo文件更新到Github中"><a href="#7-将本地的Hexo文件更新到Github中" class="headerlink" title=" 7. 将本地的Hexo文件更新到Github中"></a><font color=red > 7. 将本地的Hexo文件更新到Github中</font></h4><p>登录 Github 打开自己的项目 your name.github.io</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120516.jpg" alt=""></p><p>鼠标移到 Clone or download 按钮，选择 Use SSH</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523130358.png" alt=""></p><p>一键复制地址</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523130405.jpg" alt=""></p><p>打开你创建的 Hexo 文件夹（如：E:\TRHX_Blog\Hexo），右键用记事本（Notepad++或者VS code等编译软件 都可以）打开该文件夹下的 _config.yml 文件</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523130415.jpg" alt=""></p><p>按下图修改 _config.yml 文件并保存</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523120440.jpg" alt=""></p><p>在 Hexo 文件夹下分别执行以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g  </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>执行完之后会让你输入你的 Github 的账号和密码，如果此时报以下错误，说明你的 deployer 没有安装成功</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure><p>需要执行以下命令再安装一次：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>再执行hexo g 和hexo d两条命令，你的博客就会部署到 Github 上了。</p><p>你的博客地址：https://你的用户名.github.io，比如我的是：<a href="https://ccit18081430136.github.io" target="_blank" rel="noopener">https://ccit18081430136.github.io</a> </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;博客目录&quot;&gt;&lt;a href=&quot;#博客目录&quot; class=&quot;headerlink&quot; title=&quot;博客目录 &quot;&gt;&lt;/a&gt;&lt;font color=red &gt;博客目录 &lt;/font&gt;&lt;/h1&gt;&lt;h2 id=&quot;1-安装Node-js和Git&quot;&gt;&lt;a href=&quot;#1-安装
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-      <category term="Github" scheme="http://yoursite.com/categories/Hexo/Github/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于hexo博客之评论篇</title>
-    <link href="http://yoursite.com/2020/05/23/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E8%AF%84%E8%AE%BA%E7%AF%87/"/>
-    <id>http://yoursite.com/2020/05/23/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E8%AF%84%E8%AE%BA%E7%AF%87/</id>
-    <published>2020-05-23T10:34:47.503Z</published>
-    <updated>2020-05-23T10:37:43.625Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="本文是讲关于增加博客评论模块。"><a href="#本文是讲关于增加博客评论模块。" class="headerlink" title="本文是讲关于增加博客评论模块。"></a>本文是讲关于增加博客评论模块。</h4><p>如果你也是用的Butterfly主题的话，就很简单了，直接在主题配置文件下设置。</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523183640.png" alt=""></p><p>这里用的是valine评论模块，如有对别的评论模块感兴趣的可自行百度。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;本文是讲关于增加博客评论模块。&quot;&gt;&lt;a href=&quot;#本文是讲关于增加博客评论模块。&quot; class=&quot;headerlink&quot; title=&quot;本文是讲关于增加博客评论模块。&quot;&gt;&lt;/a&gt;本文是讲关于增加博客评论模块。&lt;/h4&gt;&lt;p&gt;如果你也是用的Butterfly主题
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>关于hexo博客之图床篇</title>
-    <link href="http://yoursite.com/2020/05/23/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E5%9B%BE%E5%BA%8A%E7%AF%87/"/>
-    <id>http://yoursite.com/2020/05/23/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E5%9B%BE%E5%BA%8A%E7%AF%87/</id>
-    <published>2020-05-23T09:20:32.864Z</published>
-    <updated>2020-05-23T09:46:11.171Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="本文讲解的图床是基于Github的，采用jsdelivr-cdn进行加速，上传工具采用的是PicGo。"><a href="#本文讲解的图床是基于Github的，采用jsdelivr-cdn进行加速，上传工具采用的是PicGo。" class="headerlink" title="本文讲解的图床是基于Github的，采用jsdelivr cdn进行加速，上传工具采用的是PicGo。"></a>本文讲解的图床是基于Github的，采用jsdelivr cdn进行加速，上传工具采用的是PicGo。</h4><p>具体步骤：</p><ol><li><p>创建Github仓库</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523173019.png" alt=""></p></li><li><p>点击头像settings,进入Developer settings</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523173218.png" alt="">)<img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523173542.png" alt=""></p></li><li><p>最后点击Generate token即可看到显示的token页面，它只会显示一次，关闭页面后再打开这个页面就不会显示了。复制token值粘贴到文本文档中，先保存下来，后面配置PicGo要用到。</p></li></ol><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523173718.png" alt=""></p><ol start="4"><li><p>配置Picgo</p><p>首先，我们先下载Picgo，点击<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">此处</a>下载。</p><p>然后进行以下配置：</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523174123.jpg" alt=""></p></li></ol><p>最后一步为设定自定义域名：格式：<a href="https://cdn.jsdelivr.net/gh/username/repo，username为GitHub用户名，repo为新建的仓库，用于存储图片" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/username/repo，username为GitHub用户名，repo为新建的仓库，用于存储图片</a></p><ol start="5"><li><p>使用方法</p><p>直接将图片拖入即可。</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523174327.jpg" alt=""></p><p>然后用的时候，进入相册,复制链接即可。</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523174517.jpg" alt=""></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;本文讲解的图床是基于Github的，采用jsdelivr-cdn进行加速，上传工具采用的是PicGo。&quot;&gt;&lt;a href=&quot;#本文讲解的图床是基于Github的，采用jsdelivr-cdn进行加速，上传工具采用的是PicGo。&quot; class=&quot;headerlin
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于hexo博客之主题美化篇</title>
-    <link href="http://yoursite.com/2020/05/23/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E7%AF%87/"/>
-    <id>http://yoursite.com/2020/05/23/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E7%AF%87/</id>
-    <published>2020-05-23T06:01:15.393Z</published>
-    <updated>2020-05-23T10:34:38.948Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="hexo主题一般都是默认的landscape-丑丑的，而且很难进行修改。这个时候我们可以登录hexo主题网站进行下载。"><a href="#hexo主题一般都是默认的landscape-丑丑的，而且很难进行修改。这个时候我们可以登录hexo主题网站进行下载。" class="headerlink" title="hexo主题一般都是默认的landscape,丑丑的，而且很难进行修改。这个时候我们可以登录hexo主题网站进行下载。"></a>hexo主题一般都是默认的landscape,丑丑的，而且很难进行修改。这个时候我们可以登录hexo<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">主题网站</a>进行下载。</h4><p>具体步骤如下：</p><ol><li><p>先登录主题网站选择自己喜欢的主题，我这里就举个例子了。就比如是第二个主题</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523142535.jpg" alt=""></p></li><li><p>在你hexo博客文件夹下右击git bash here 执行图上所示代码。</p><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523142547.png" alt=""></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/shixiaohu2206/hexo-theme-huhu.git themes/hexo-theme-huhu</span><br></pre></td></tr></table></figure></li><li><p>最后在你的根目录文件夹下.config文件主题配置改名即可。注：是根目录下，而不是主题目录下的</p><p>到此你的主题就下载好了。</p></li></ol><p><img src="https://cdn.jsdelivr.net/gh/sunflower-air/clouding/images/20200523142529.png" alt=""></p><p>一般直接上传到云端就OK了。</p><h4 id="我用的主题是Butterfly主题，有感兴趣的同学也可以使用这个主题。https-jerryc-me-这是作者博客，下载地址及美化，他的主题都有写，在此就不再详述了。"><a href="#我用的主题是Butterfly主题，有感兴趣的同学也可以使用这个主题。https-jerryc-me-这是作者博客，下载地址及美化，他的主题都有写，在此就不再详述了。" class="headerlink" title="我用的主题是Butterfly主题，有感兴趣的同学也可以使用这个主题。https://jerryc.me/这是作者博客，下载地址及美化，他的主题都有写，在此就不再详述了。"></a>我用的主题是Butterfly主题，有感兴趣的同学也可以使用这个主题。<a href="https://jerryc.me/这是作者博客，下载地址及美化，他的主题都有写，在此就不再详述了。" target="_blank" rel="noopener">https://jerryc.me/这是作者博客，下载地址及美化，他的主题都有写，在此就不再详述了。</a></h4>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;hexo主题一般都是默认的landscape-丑丑的，而且很难进行修改。这个时候我们可以登录hexo主题网站进行下载。&quot;&gt;&lt;a href=&quot;#hexo主题一般都是默认的landscape-丑丑的，而且很难进行修改。这个时候我们可以登录hexo主题网站进行下载。&quot; 
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
